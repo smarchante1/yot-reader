@@ -7,6 +7,8 @@ export interface Chapter {
   images: string[]; // List of URLs for the manga pages
   pageCount: number;
   dateReleased: string;
+  heroImagePage?: number; // Which page to use for homepage hero (0-indexed)
+  heroImagePosition?: string; // CSS background-position for hero image (e.g., "center top")
 }
 
 export interface Character {

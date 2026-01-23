@@ -62,9 +62,15 @@ export const Home: React.FC = () => {
             {/* Background Thumbnail */}
             <div className="absolute inset-0 z-0">
               <img
-                src={latestChapter.thumbnail}
+                src={
+                  latestChapter.images[latestChapter.heroImagePage || 0] ||
+                  latestChapter.thumbnail
+                }
                 alt={latestChapter.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                style={{
+                  objectPosition: latestChapter.heroImagePosition || 'center',
+                }}
               />
               <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500 ease-in-out"></div>
             </div>

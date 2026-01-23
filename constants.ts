@@ -1,3 +1,4 @@
+import { HashIcon } from 'lucide-react';
 import { Chapter, Character, Fanart } from './types';
 
 export const MANGA_TITLE = 'Ye Olde Treehouse';
@@ -44,7 +45,24 @@ export const generateMangaUrl = (
  * spreads: [6] means page 6 and 7 are a single file named prefix_006_007.png
  * skips: [2, 3] means pages 2 and 3 do not exist and should be skipped entirely
  */
-const CHAPTER_METADATA = [
+interface ChapterMetadata {
+  id: number;
+  title: string;
+  prefix: string;
+  folder: string;
+  synopsis: string;
+  pageCount: number;
+  spreads: number[];
+  skips: number[];
+  dateReleased: string;
+  thumbnailPage: number;
+  hasCover?: boolean;
+  coverFilename?: string;
+  heroImagePage?: number;
+  heroImagePosition?: string;
+}
+
+const CHAPTER_METADATA: ChapterMetadata[] = [
   {
     id: 1,
     title: 'Chapter 1: The Hunt Begins!',
@@ -69,7 +87,9 @@ const CHAPTER_METADATA = [
     spreads: [], // Page 4-5 and 12-13 are spreads
     skips: [2],
     dateReleased: '1/8/2023',
-    thumbnailPage: 1,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CH2-COVER.png',
   },
   {
     id: 3,
@@ -82,7 +102,9 @@ const CHAPTER_METADATA = [
     spreads: [],
     skips: [2],
     dateReleased: '1/15/2023',
-    thumbnailPage: 1,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CH3-COVER.png',
   },
   {
     id: 4,
@@ -95,7 +117,9 @@ const CHAPTER_METADATA = [
     spreads: [],
     skips: [2],
     dateReleased: '1/15/2023',
-    thumbnailPage: 1,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER4.png',
   },
   {
     id: 5,
@@ -108,7 +132,9 @@ const CHAPTER_METADATA = [
     spreads: [4, 14, 20],
     skips: [2, 3], // Skipping pages 2 and 3 as requested
     dateReleased: '1/15/2023',
-    thumbnailPage: 1,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER5.png',
   },
   {
     id: 6,
@@ -121,7 +147,9 @@ const CHAPTER_METADATA = [
     spreads: [17],
     skips: [2],
     dateReleased: '1/15/2023',
-    thumbnailPage: 1,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER6.png',
   },
   {
     id: 7,
@@ -133,7 +161,9 @@ const CHAPTER_METADATA = [
     spreads: [],
     skips: [2],
     dateReleased: '1/15/2023',
-    thumbnailPage: 1,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER7.png',
   },
   {
     id: 8,
@@ -157,7 +187,9 @@ const CHAPTER_METADATA = [
     spreads: [],
     skips: [2],
     dateReleased: '1/15/2023',
-    thumbnailPage: 1,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER9.png',
   },
   {
     id: 10,
@@ -169,7 +201,9 @@ const CHAPTER_METADATA = [
     spreads: [],
     skips: [2],
     dateReleased: '1/15/2023',
-    thumbnailPage: 1,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER10.png',
   },
   {
     id: 11,
@@ -181,7 +215,9 @@ const CHAPTER_METADATA = [
     spreads: [],
     skips: [2],
     dateReleased: '1/15/2023',
-    thumbnailPage: 1,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER11.png',
   },
   {
     id: 12,
@@ -194,7 +230,9 @@ And who other to greet them than the Nosferi Ringmaster himself?!`,
     spreads: [],
     skips: [2],
     dateReleased: '1/15/2023',
-    thumbnailPage: 1,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER12.png',
   },
   {
     id: 13,
@@ -206,7 +244,9 @@ And who other to greet them than the Nosferi Ringmaster himself?!`,
     spreads: [7],
     skips: [2, 3],
     dateReleased: '1/15/2023',
-    thumbnailPage: 1,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER13.png',
   },
   {
     id: 14,
@@ -218,7 +258,9 @@ And who other to greet them than the Nosferi Ringmaster himself?!`,
     spreads: [],
     skips: [],
     dateReleased: '1/15/2023',
-    thumbnailPage: 1,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER14.png',
   },
   {
     id: 15,
@@ -230,7 +272,9 @@ And who other to greet them than the Nosferi Ringmaster himself?!`,
     spreads: [],
     skips: [2],
     dateReleased: '1/15/2023',
-    thumbnailPage: 1,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER15.png',
   },
   {
     id: 16,
@@ -254,7 +298,9 @@ And who other to greet them than the Nosferi Ringmaster himself?!`,
     spreads: [3],
     skips: [],
     dateReleased: '1/15/2023',
-    thumbnailPage: 8,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER17.png',
   },
   {
     id: 18,
@@ -266,7 +312,9 @@ And who other to greet them than the Nosferi Ringmaster himself?!`,
     spreads: [13],
     skips: [1],
     dateReleased: '1/15/2023',
-    thumbnailPage: 1,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER18.png',
   },
   {
     id: 19,
@@ -278,7 +326,9 @@ And who other to greet them than the Nosferi Ringmaster himself?!`,
     spreads: [],
     skips: [],
     dateReleased: '1/15/2023',
-    thumbnailPage: 8,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER19.png',
   },
   {
     id: 20,
@@ -290,7 +340,9 @@ And who other to greet them than the Nosferi Ringmaster himself?!`,
     spreads: [],
     skips: [],
     dateReleased: '1/15/2023',
-    thumbnailPage: 17,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER20.png',
   },
   {
     id: 21,
@@ -302,7 +354,9 @@ And who other to greet them than the Nosferi Ringmaster himself?!`,
     spreads: [9],
     skips: [1],
     dateReleased: '1/15/2023',
-    thumbnailPage: 3,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER21.png',
   },
   {
     id: 22,
@@ -314,7 +368,9 @@ And who other to greet them than the Nosferi Ringmaster himself?!`,
     spreads: [],
     skips: [],
     dateReleased: '1/15/2023',
-    thumbnailPage: 1,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER22.png',
   },
   {
     id: 23,
@@ -326,7 +382,9 @@ And who other to greet them than the Nosferi Ringmaster himself?!`,
     spreads: [],
     skips: [],
     dateReleased: '1/15/2023',
-    thumbnailPage: 18,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER23.png',
   },
   {
     id: 24,
@@ -348,11 +406,13 @@ And who other to greet them than the Nosferi Ringmaster himself?!`,
     prefix: 'CHAP-25',
     folder: 'chapter25',
     synopsis: `The Glory Oak Tree dwarfs Glory Peak for a reason. Viveform's been hiding something in plain sight, and it connects to the magic that destroyed Altamerian. Ender will get some answers he won't like.`,
-    pageCount: 18,
+    pageCount: 19,
     spreads: [3],
     skips: [],
     dateReleased: '1/15/2023',
-    thumbnailPage: 12,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER25.png',
   },
   {
     id: 26,
@@ -364,7 +424,9 @@ And who other to greet them than the Nosferi Ringmaster himself?!`,
     spreads: [],
     skips: [],
     dateReleased: '1/15/2023',
-    thumbnailPage: 18,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER26.png',
   },
   {
     id: 27,
@@ -376,7 +438,9 @@ And who other to greet them than the Nosferi Ringmaster himself?!`,
     spreads: [],
     skips: [],
     dateReleased: '1/15/2023',
-    thumbnailPage: 12,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER27.png',
   },
   {
     id: 28,
@@ -388,7 +452,11 @@ And who other to greet them than the Nosferi Ringmaster himself?!`,
     spreads: [],
     skips: [],
     dateReleased: '1/15/2023',
-    thumbnailPage: 8,
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CHCOVER28.png',
+    heroImagePage: 5,
+    heroImagePosition: 'center top',
   },
 ];
 
@@ -421,9 +489,12 @@ export const CHAPTERS: Chapter[] = Array.from({ length: 28 }, (_, i) => {
       : `${folder}/`
     : '';
 
-  // If chapter has a cover (page 0), add it first
-  if (hasCover) {
-    const coverFilename = meta?.coverFilename || 'Cover.jpg'; // Use custom filename or default
+  // Check if this is a volume start chapter (1, 8, 16, 24)
+  const isVolumeStart = [1, 8, 16, 24].includes(id);
+
+  // If chapter has a cover and is a volume start, add it first to images array
+  if (hasCover && isVolumeStart) {
+    const coverFilename = meta?.coverFilename || 'Cover.jpg';
     const coverUrl = `${base}${folderPart}${coverFilename}`;
     images.push(coverUrl);
   }
@@ -442,15 +513,15 @@ export const CHAPTERS: Chapter[] = Array.from({ length: 28 }, (_, i) => {
     }
   }
 
-  // Thumbnail logic: if thumbnailPage is 0 and hasCover, use the cover
+  // Determine thumbnail: use cover if hasCover and thumbnailPage is 0, otherwise use specified page
   let thumbnail = images[0] || '';
   if (thumbnailPage === 0 && hasCover) {
     const coverFilename = meta?.coverFilename || 'Cover.jpg'; // Use custom filename or default
     thumbnail = `${base}${folderPart}${coverFilename}`;
   } else if (thumbnailPage > 0) {
-    const offset = hasCover ? 1 : 0;
-    const pageIndex = hasCover ? thumbnailPage : thumbnailPage - 1;
-    thumbnail = images[pageIndex] || images[0] || '';
+    // If cover is in images array (volume start), need to offset by 1
+    const offset = isVolumeStart && hasCover ? 1 : 0;
+    thumbnail = images[offset + thumbnailPage - 1] || images[0] || '';
   }
 
   return {
@@ -462,6 +533,8 @@ export const CHAPTERS: Chapter[] = Array.from({ length: 28 }, (_, i) => {
     images,
     thumbnail,
     thumbnailPage,
+    heroImagePage: meta?.heroImagePage || 0,
+    heroImagePosition: meta?.heroImagePosition || 'center',
   };
 });
 
