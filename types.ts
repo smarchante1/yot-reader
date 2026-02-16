@@ -11,6 +11,15 @@ export interface Chapter {
   heroImagePosition?: string; // CSS background-position for hero image (e.g., "center top")
 }
 
+export interface Episode {
+  id: number;
+  title: string;
+  thumbnail: string;
+  duration?: string;
+  comingSoon: boolean;
+  description: string;
+}
+
 export interface Character {
   id: string;
   name: string;

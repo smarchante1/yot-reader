@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, ArrowRight, Calendar } from 'lucide-react';
 import { CHAPTERS } from '../constants';
 import { Button } from './Button';
+import { VideoEpisodes } from './VideoEpisodes';
 
 export const Home: React.FC = () => {
   const latestChapter = CHAPTERS[CHAPTERS.length - 1];
@@ -11,14 +12,12 @@ export const Home: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       {/* Immersive Overlaid Hero Section */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-slate-950">
-        {/* Background Image Overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src="assets/cover.JPG"
             alt="Ye Olde Treehouse Immersive Art"
-            className="w-full h-full object-cover opacity-100 scale-100 animate-pulse-slow"
+            className="w-full h-full object-cover opacity-100"
           />
-          {/* Bare minimum overlay to support text contrast - very light */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/5 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
         </div>
@@ -29,13 +28,13 @@ export const Home: React.FC = () => {
               <Sparkles size={14} className="text-amber-400" />
               Original Fantasy Adventure Manga
             </div>
-            <h1 className="text-6xl md:text-6xl font-black font-cinzel text-white mb-8 leading-[0.85] tracking-tighter drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]">
+            <h1 className="text-6xl md:text-9xl font-black font-cinzel text-white mb-8 leading-[0.85] tracking-tighter drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)]">
               Ye Olde <br />
               <span className="text-[#E1F6FA]">Treehouse</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white mb-12 leading-relaxed max-w-2xl font-light drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
-              A epic fantasy adventure where magic runs wild and corruption runs
-              deep.
+            <p className="text-xl md:text-2xl text-white mb-12 leading-relaxed max-w-2xl font-light drop-shadow-[0_4px_16px_rgba(0,0,0,1)]">
+              An epic fantasy adventure where magic runs wild and corruption
+              runs deep.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5">
@@ -52,49 +51,64 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Latest Release Ticker */}
-      <section className="bg-white py-12 relative z-30">
+      {/* Refined Latest Release Section - Magazine Style */}
+      <section className="bg-white py-12 lg:py-20 relative z-30">
         <div className="max-w-7xl mx-auto px-6">
-          <Link
-            to={`/chapter/${latestChapter.id}`}
-            className="group relative flex flex-col md:flex-row items-center justify-between rounded-3xl p-8 lg:p-10 shadow-2xl transform -translate-y-16 border border-white/10 overflow-hidden min-h-[220px] transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_30px_60px_rgba(0,0,0,0.4)] block"
-          >
-            {/* Background Thumbnail */}
-            <div className="absolute inset-0 z-0">
+          <div className="flex flex-col md:flex-row items-center gap-12 bg-[#F8FDFF] border border-[#E1F6FA] rounded-[2rem] p-4 pr-12 group hover:shadow-xl transition-all duration-500 overflow-hidden">
+            {/* Thumbnail Box */}
+            <div className="w-full md:w-[320px] lg:w-[420px] shrink-0 aspect-[16/10] rounded-2xl overflow-hidden relative shadow-lg">
               <img
-                src={
-                  latestChapter.images[latestChapter.heroImagePage || 0] ||
-                  latestChapter.thumbnail
-                }
+                src={latestChapter.thumbnail}
                 alt={latestChapter.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                style={{
-                  objectPosition: latestChapter.heroImagePosition || 'center',
-                }}
               />
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500 ease-in-out"></div>
-            </div>
-
-            <div className="relative z-10 w-full">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="inline-flex items-center gap-3 px-6 py-2.5 bg-[#1192A3] text-white text-[12px] font-black uppercase tracking-[0.2em] rounded-full shadow-inner border border-white/10">
-                  <span className="w-2.5 h-2.5 bg-[#E1F6FA] rounded-full animate-led" />
-                  Latest Update
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="absolute bottom-4 left-4">
+                <span className="bg-white/90 backdrop-blur-md text-[#016F93] text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-lg shadow-sm">
+                  CH {latestChapter.id}
                 </span>
               </div>
-              <h2 className="text-3xl lg:text-5xl font-black text-white font-cinzel mb-2 drop-shadow-[0_4px_16px_rgba(0,0,0,1)] filter brightness-110">
+            </div>
+
+            {/* Content Box */}
+            <div className="flex-1 py-4 text-center md:text-left">
+              <div className="flex flex-col md:flex-row md:items-center gap-4 mb-4">
+                <span className="inline-flex items-center gap-2.5 bg-[#1192A3] text-white text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full shadow-lg shadow-[#1192A3]/20">
+                  <span className="w-2 h-2 bg-white rounded-full animate-led" />
+                  Latest Chapter
+                </span>
+                <span className="hidden md:block w-1 h-1 bg-slate-200 rounded-full"></span>
+                <span className="inline-flex items-center gap-2 text-slate-400 text-[10px] font-bold uppercase tracking-widest">
+                  <Calendar size={12} />
+                  {latestChapter.dateReleased}
+                </span>
+              </div>
+
+              <h2 className="text-3xl lg:text-5xl font-black text-[#016F93] font-cinzel mb-4 uppercase tracking-tight leading-none">
                 {latestChapter.title}
               </h2>
-              <p className="text-[#E1F6FA] text-sm font-black uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4 flex items-center gap-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                Click to read now{' '}
-                <Sparkles size={14} className="animate-pulse text-amber-300" />
+
+              <p className="text-slate-500 text-sm md:text-base leading-relaxed mb-8 max-w-xl line-clamp-2">
+                {latestChapter.synopsis}
               </p>
+
+              <Link to={`/chapter/${latestChapter.id}`}>
+                <button className="flex items-center gap-4 text-[#1192A3] font-black uppercase text-xs tracking-[0.2em] group/btn">
+                  <span>Read it Now</span>
+                  <div className="w-10 h-10 rounded-full bg-[#1192A3]/10 flex items-center justify-center transition-all group-hover/btn:bg-[#1192A3] group-hover/btn:text-white">
+                    <ArrowRight size={18} />
+                  </div>
+                </button>
+              </Link>
             </div>
-          </Link>
+          </div>
         </div>
       </section>
 
-      {/* Story So Far section - Full Width Immersive Banner */}
+      {/* Video Episodes Section */}
+      <VideoEpisodes />
+
+      {/* Story So Far section - Full Width Immersive Light Blue Banner */}
       <section className="w-full relative overflow-hidden flex items-center min-h-[600px] bg-[#E1F6FA]">
         {/* Immersive Background Image */}
         <div className="absolute inset-0 z-0">
@@ -133,18 +147,17 @@ export const Home: React.FC = () => {
             {/* Synopsis Section */}
             <div className="space-y-8">
               <p className="text-xl md:text-2xl text-slate-700 leading-relaxed font-light">
-                In a world where magic is strictly regulated and shadows hide
-                ancient deities, a ragtag protection squad led by the impulsive
-                Rou Akei finds themselves at the heart of a cosmic conspiracy.
-                As the Nosferi circus brings illusions that mask dark truths,
-                the roots of the Olde Treehouse begin to tremble with a power
-                that could reshape Glory Peak forever.
+                In a world where magic flows through powerful flora in the form
+                of "Augurs" a ragtag protection squad led by the impulsive Rou
+                Akei finds themselves at the heart of a government conspiracy.
+                What started as a chase for a rougue Ringmaster grows into a
+                search for trust and a test of trust.
               </p>
 
               <Link to="/chapters" className="inline-block">
                 <button className="group flex items-center gap-4 text-[#016F93] font-black uppercase text-xs tracking-[0.3em] hover:text-[#1192A3] transition-all">
                   <span className="border-b-2 border-transparent group-hover:border-[#1192A3] pb-1 transition-all">
-                    Read All Chapters
+                    Explore the Library
                   </span>
                   <div className="p-2 bg-[#016F93]/5 rounded-full group-hover:bg-[#1192A3] group-hover:text-white transition-all text-[#016F93]">
                     <Sparkles size={16} />

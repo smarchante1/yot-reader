@@ -1,5 +1,5 @@
 import { HashIcon } from 'lucide-react';
-import { Chapter, Character, Fanart } from './types';
+import { Chapter, Character, Fanart, Episode } from './types';
 
 export const MANGA_TITLE = 'Ye Olde Treehouse';
 export const R2_BASE_URL =
@@ -16,6 +16,7 @@ export const SOCIAL_LINKS = {
   twitter: 'https://twitter.com/fifimangaka',
   instagram: 'https://instagram.com/fifimangaka',
   youtube: 'https://youtube.com/@fifimangaka',
+  youtubeSubscribe: 'https://www.youtube.com/@fifimangaka?sub_confirmation=1',
   patreon: 'https://patreon.com/fifimangaka',
   readManga: '/#/chapters',
 };
@@ -39,6 +40,19 @@ export const generateMangaUrl = (
 
   return `${base}${folderPart}${prefix}_${p3}.png`;
 };
+
+export const EPISODES: Episode[] = [
+  {
+    id: 1,
+    title: 'The Hunt Begins!',
+    thumbnail:
+      'https://pub-c762db5339954ab98813a32e9aaa79ff.r2.dev/YOT-CHAP1_001.png',
+    comingSoon: true,
+    description:
+      'Experience the start of the saga with full voice acting, soundtrack and motion! Rou and Fig begin their hunt for the elusive Drendith Nosferi at the famous Nosferi Circus Compound in New Alta Dercha.',
+    duration: '',
+  },
+];
 
 /**
  * CHAPTER METADATA
