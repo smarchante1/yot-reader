@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
           {/* Social Links Column */}
           <div className="flex flex-col items-center">
             <h4 className="text-slate-500 font-cinzel text-[10px] font-bold uppercase tracking-[0.4em] mb-8">
-              Connect With Us
+              Follow YOT socials
             </h4>
             <div className="flex items-center gap-8">
               <a
@@ -69,13 +69,13 @@ export const Footer: React.FC = () => {
                 href={SOCIAL_LINKS.patreon}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-[#006E91] hover:bg-[#015A75] text-white px-8 py-3.5 rounded-full font-bold transition-all shadow-lg hover:shadow-[0_0_20px_rgba(0,110,145,0.3)] transform hover:-translate-y-1"
+                className="inline-flex items-center gap-3 bg-[#E03C3E] hover:bg-[#C03234] text-white px-8 py-3.5 rounded-full font-bold transition-all shadow-lg hover:shadow-[0_0_20px_rgba(224,60,62,0.3)] transform hover:-translate-y-1"
               >
                 <Heart size={18} className="fill-current" />
                 <span>Become a Patron</span>
               </a>
               <p className="text-slate-500 text-xs tracking-wide">
-                Get early access and exclusive art.
+                Get early access and BTS content!
               </p>
             </div>
           </div>

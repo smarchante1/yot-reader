@@ -13,10 +13,10 @@ export const COLORS = {
 };
 
 export const SOCIAL_LINKS = {
-  twitter: 'https://twitter.com',
-  instagram: 'https://instagram.com',
-  youtube: 'https://youtube.com',
-  patreon: 'https://patreon.com',
+  twitter: 'https://twitter.com/fifimangaka',
+  instagram: 'https://instagram.com/fifimangaka',
+  youtube: 'https://youtube.com/@fifimangaka',
+  patreon: 'https://patreon.com/fifimangaka',
   readManga: '/#/chapters',
 };
 
@@ -70,7 +70,7 @@ const CHAPTER_METADATA: ChapterMetadata[] = [
     folder: '', // Root folder
     synopsis:
       'Captain Rou and Agent Fig are on a mission to hunt down the dangerous Circus Ringmaster, Drendith Nosferi. Nothing goes as they plan though, as their wild hunt kicks off an even wilder journey!',
-    pageCount: 49,
+    pageCount: 51,
     spreads: [6], // Page 6-7 is YOT-CHAP1_006_007.png
     skips: [2],
     dateReleased: '1/1/2023',
@@ -398,7 +398,7 @@ And who other to greet them than the Nosferi Ringmaster himself?!`,
     dateReleased: '1/15/2023',
     thumbnailPage: 0,
     hasCover: true,
-    coverFilename: 'Cover.JPG', // Add this line
+    coverFilename: 'Cover.JPG',
   },
   {
     id: 25,
@@ -546,12 +546,116 @@ export const LATEST_CHAPTER_ID =
 
 export const CHARACTERS: Character[] = [
   {
-    id: 'kael',
-    name: 'Kaelen Swift',
-    role: 'The Reluctant Hero',
-    bio: 'Born in the outer wastes, Kaelen lived a life of survival until he stumbled upon the Treehouse.',
-    personality: 'Pragmatic, observant, and deeply loyal.',
-    imageUrls: ['https://picsum.photos/seed/kael_1/800/1200'],
+    id: 'rou',
+    name: 'Rou Akei',
+    role: 'The Unlikely Captain',
+    bio: 'Rou is the Captain of Viveform’s top protection squad, based in New Alta Izera, Glory Peak. She’s a bit unorthodox, often charging ahead before fully thinking things through, but that same impulsiveness is driven by passion, loyalty, and an unshakable sense of justice. After joining Viveform she met Commander Ender Valen, the first real “friend” she ever had. He promoted her to Captain when nearly the entire organization doubted her. That trust means everything to Rou, even if she struggles to show it.',
+    personality:
+      'Impulsive but heartfelt, she acts on instinct and emotion more than caution. Bright and energetic, with a sassy undertone. Rou has the power to see into the future with her Augur, Teleregnum.',
+    imageUrls: [
+      'assets/RouPort.png',
+      'assets/RouPage1.png',
+      'assets/RouPage2.png',
+      'assets/RouPage3.png',
+    ],
+  },
+  {
+    id: 'fig',
+    name: 'Fig Noston',
+    role: 'The Genius Geologist',
+    bio: 'Fig Noston is the second-in-command of Viveform’s top protection squad for New Alta Izera, Glory Peak. She’s calm, thoughtful, brilliant and always seems to know what to do when things go sideways. But that all comes crashing down when a mysterious Sky Pirate digs up old debts, demanding payment for something Fig took from him. Threatening to unravel the life she’s fought to build.',
+    personality:
+      'Gentle, practical and focused under pressure. Fig is the stability that keeps the team together. Fig has the power to turn to diamond with her Augur, Admavis.',
+    imageUrls: [
+      'assets/FigPort.png',
+      'assets/FigPage1.png',
+      'assets/FigPage2.png',
+      'assets/FigPage3.png',
+    ],
+  },
+  {
+    id: 'drendith',
+    name: 'Drendith Nosferi',
+    role: 'The Dark Showman',
+    bio: "Drendith Nosferi comes from the legendary Nosferi family, a famed circus dynasty in Glory Peak. It's suspected he wields a dangerous and outlawed magic to perform his circus shows, and was placed under surveillance by Viveform. Under the glitz of performance, Drendith is motivated by a deep desire to restore his family’s honor and seek revenge against Viveform for their role in their catastrophic downfall.",
+    personality:
+      'Flamboyant, showy and flirty. His peacock like exterior hides a deep darkness within. Drendith has the power to create powerful illusions with his Augur, Perfissio.',
+    imageUrls: [
+      'assets/DrendithPort.png',
+      'assets/DrenPage1.png',
+      'assets/DrenPage2.png',
+      'assets/DrenPage3.png',
+    ],
+  },
+  {
+    id: 'ender',
+    name: 'Ender Valen',
+    role: 'The Kingmaker',
+    bio: 'Ender Valen leads Viveform’s military branch with unwavering discipline and a reputation for effectiveness that few dare question. Marked by the scar running down the left side of his face and body, Ender is as feared as he is respected, a figure known for his stoic presence and sharp command of any situation. He carries his own secrets, the largest of which remains hidden behind the scar that defines him.',
+    personality:
+      'Calm and gentle with his friends and subordinates. Though when possessed by Obsius, he becomes ruthless and merciless. ',
+    imageUrls: [
+      'assets/EnderPort.png',
+      'assets/EnderPage1.png',
+      'assets/EnderPage2.png',
+      'assets/EnderPage3.png',
+    ],
+  },
+  {
+    id: 'kenzi',
+    name: 'Kenzi Akimoto',
+    role: 'The Royal Rogue',
+    bio: 'Kenzi was born into the prestigious race of "Ordained", the daughter of an Pleading Council member and heir to a life most people could only dream of. But Kenzi’s determined to earn her place not by bloodline, but by skill and to fight for a world where no one’s born better than anyone else.',
+    personality:
+      'Energetic, bossy, and confident. Kenzi has a fiery attitude that keeps the group on their toes.',
+    imageUrls: [
+      'assets/KenziPort.png',
+      'assets/KenziPage1.png',
+      'assets/KenziPage2.png',
+      'assets/KenziPage3.png',
+    ],
+  },
+  {
+    id: 'solomon',
+    name: 'Solomon Vex',
+    role: 'The Flame Spirit',
+    bio: 'Vex is a Tier 4 swordsman in Viveform who wields Spirignum, the flame spirit Augur that lets him breathe and control fire during battle. Ten years ago, Vex woke up in the forests of Laetowood without any memory of who he was or where he came from. The only clues to his identity are a strange necklace he has always worn and a red panda cub named Boca. His sword, Zhomei, wrapped in bandages, is a trusted weapon whose origins are as mysterious as his own past.',
+    personality:
+      'Fiery, full of heart and fiercely loyal. Vex loves a good challenge and eats more than anyone else.',
+    imageUrls: [
+      'assets/VexPort.png',
+      'assets/VexPage1.png',
+      'assets/VexPage2.png',
+      'assets/VexPage3.png',
+    ],
+  },
+  {
+    id: 'boca',
+    name: 'Boca',
+    role: "Vex's Pal",
+    bio: "A red panda child who is Vex's closest companion. Despite his innocent look, Boca has a mischievous streak and a knack for getting into trouble, but his heart is always in the right place. He and Vex want to travel Viso to find out more about their past.",
+    personality:
+      'Innocent but mischievous, with a heart of gold. Extremely curious and driven to explore the world.',
+    imageUrls: [
+      'assets/BocaPort.png',
+      'assets/BocaPage1.png',
+      'assets/BocaPage2.png',
+      'assets/BocaPage3.png',
+    ],
+  },
+  {
+    id: 'kaz',
+    name: 'Kaz Greenfield',
+    role: 'The Gifted Soldier',
+    bio: 'Kaz has spent his entire life preparing to serve Viveform. Born into a decorated military family, his upbringing was built on discipline, sacrifice, and the belief that glory is earned through unwavering loyalty. Within Viveform’s ranks, Kaz’s reputation is unmatched, a rising star destined for leadership. But he lost his chance, when Rou was promoted to Captain over him. Now, Kaz must navigate the complex emotions of rivalry, respect, and the desire to prove himself worthy of command.',
+    personality:
+      'Disciplined, confident and eager to demonstrate his skills and prowess. A bit cocky at times, though he means well.',
+    imageUrls: [
+      'assets/KazPort.png',
+      'assets/KazPage1.png',
+      'assets/KazPage2.png',
+      'assets/KazPage3.png',
+    ],
   },
 ];
 

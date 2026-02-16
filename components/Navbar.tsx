@@ -93,10 +93,10 @@ export const Navbar: React.FC = () => {
 
             <div className="flex items-center gap-4">
               <a
-                href="https://patreon.com"
+                href="https://patreon.com/fifimangaka"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#006E91] text-white px-6 py-3 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-[#015A75] hover:scale-105 transition-all flex items-center gap-2 shadow-md"
+                className="bg-[#E03C3E] text-white px-5 py-2.5 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-[#C03234] transition-all flex items-center gap-2 shadow-sm"
               >
                 <Heart size={14} className="fill-current" />
                 Support

@@ -46,14 +46,12 @@ export const About: React.FC = () => {
                 </h2>
               </div>
               <p className="text-slate-600 leading-relaxed text-lg">
-                The series is written and illustrated by SAM, a former engineer
-                turned mangaka who decided one day in 2024 that making manga was
-                the best way to get this story out of their head. dedicated to
-                high-quality storytelling and immersive visual world-building.
-                With a background in traditional illustration and a passion for
-                character-driven drama, the goal of {MANGA_TITLE} is to provide
-                a unique reading experience that blends classic fantasy tropes
-                with modern storytelling techniques.
+                The series is written and illustrated by <strong>SAM</strong>, a
+                former engineer turned mangaka who decided one day in 2024 that
+                making manga was the best way to get this story out of their
+                head. In love with all things fantasy and esoteric,{' '}
+                {MANGA_TITLE} is their love letter to all the fun, whimsical,
+                mystical and macabre stories that inspired them growing up.
               </p>
             </div>
             <div className="w-full md:w-1/3 aspect-square bg-slate-200 rounded-full overflow-hidden shadow-xl border-8 border-white">
@@ -101,19 +99,18 @@ export const About: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white p-10 rounded-3xl shadow-sm border border-[#E1F6FA] mt-8">
+          {/* <div className="bg-white p-10 rounded-3xl shadow-sm border border-[#E1F6FA] mt-8">
             <div className="flex items-center gap-3 mb-4 text-[#1192A3]">
               <Book size={24} />
               <h3 className="font-bold text-[#016F93] font-cinzel uppercase tracking-widest">
-                Complete Archive
+                4 Volumes
               </h3>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed">
               All 28 chapters are now available for free to read online,
-              representing a complete story arc with hundreds of pages of
-              original art.
+              representing a story arc with hundreds of pages of original art.
             </p>
-          </div>
+          </div> */}
 
           {/* Contact / Inquiries */}
           <div className="text-center pt-10">

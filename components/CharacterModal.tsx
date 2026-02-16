@@ -15,8 +15,9 @@ export const CharacterModal: React.FC<CharacterModalProps> = ({
 
   const handlePrevImage = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setCurrentImageIndex((prev) => 
-      (prev - 1 + character.imageUrls.length) % character.imageUrls.length
+    setCurrentImageIndex(
+      (prev) =>
+        (prev - 1 + character.imageUrls.length) % character.imageUrls.length,
     );
   };
 
@@ -102,11 +103,11 @@ export const CharacterModal: React.FC<CharacterModalProps> = ({
                 </p>
               </section>
             </div>
-            
+
             <div className="mt-16 pt-8 border-t border-slate-800">
-               <p className="text-xs text-slate-600 uppercase tracking-[0.5em] font-cinzel text-center">
-                 Character Profile Complete
-               </p>
+              <p className="text-xs text-slate-600 uppercase tracking-[0.5em] font-cinzel text-center">
+                Ye Olde Treehouse
+              </p>
             </div>
           </div>
         </div>

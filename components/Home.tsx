@@ -42,7 +42,7 @@ export const Home: React.FC = () => {
               <Link to="/chapter/1">
                 <Button
                   variant="primary"
-                  className="w-full sm:w-auto text-lg px-12 py-6 font-cinzel uppercase tracking-widest shadow-2xl bg-white !text-[#016F93] hover:!bg-[#E1F6FA] transform hover:scale-105 transition-all"
+                  className="w-full sm:w-auto text-xl px-12 py-6 md:px-20 md:py-10 font-cinzel uppercase tracking-widest shadow-[0_20px_50px_rgba(0,0,0,0.4)] bg-white !text-[#016F93] hover:!bg-[#E1F6FA] transform hover:scale-105 transition-all"
                 >
                   Start Reading
                 </Button>
@@ -95,54 +95,64 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Story So Far section - Full Width Immersive Banner */}
-      <section className="w-full bg-[#E1F6FA]/40 border-y border-[#1192A3]/10 relative overflow-hidden flex flex-col md:flex-row items-stretch min-h-[600px]">
-        {/* Left Column: Content Container */}
-        <div className="flex-grow flex items-center justify-center md:justify-end py-20 px-6 md:px-12 lg:px-20">
-          <div className="max-w-3xl w-full flex flex-col gap-10">
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-4">
-                <span className="bg-[#016F93] text-white text-[10px] font-black uppercase tracking-[0.4em] px-5 py-2 rounded-none whitespace-nowrap">
-                  Arc 1
-                </span>
-                <div className="h-px w-16 bg-[#1192A3]/30"></div>
-                <h3 className="text-[#1192A3] text-[11px] font-black uppercase tracking-[0.5em] font-cinzel">
-                  Nosferi Dilemma
-                </h3>
-              </div>
-
-              <h2 className="text-5xl md:text-7xl font-black text-[#016F93] font-cinzel uppercase tracking-tighter leading-none">
-                Story So Far
-              </h2>
-            </div>
-
-            {/* Minimalist Divider */}
-            <div className="h-2 w-28 bg-[#1192A3] rounded-none"></div>
-
-            {/* Synopsis Section */}
-            <div className="max-w-3xl">
-              <p className="text-xl md:text-2xl text-slate-700 leading-relaxed font-light">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Modular Separation Line */}
-        <div className="hidden md:block w-px bg-[#1192A3]/10 self-stretch"></div>
-
-        {/* Right Column: Image strictly fills the container height, resized to give text more space */}
-        <div className="w-full md:w-[350px] lg:w-[420px] shrink-0 relative animate-in slide-in-from-right duration-700">
+      <section className="w-full relative overflow-hidden flex items-center min-h-[600px] bg-[#E1F6FA]">
+        {/* Immersive Background Image */}
+        <div className="absolute inset-0 z-0">
           <img
             src="assets/YOT-CH23_017.png"
             alt="Arc 1 Key Visual"
-            className="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-1000"
+            className="w-full h-full object-cover grayscale-[40%] opacity-40 mix-blend-multiply"
           />
+          {/* Light Blue Cinematic Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#E1F6FA] via-[#E1F6FA]/95 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#E1F6FA]/40 via-transparent to-transparent"></div>
+        </div>
+
+        {/* Content Container aligned with main grid */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full relative z-10 py-24">
+          <div className="max-w-3xl flex flex-col gap-10 animate-in fade-in slide-in-from-left duration-1000">
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-4">
+                <span className="bg-[#016F93] text-white text-[10px] font-black uppercase tracking-[0.4em] px-5 py-2 rounded-sm shadow-lg">
+                  Arc 1
+                </span>
+                <div className="h-px w-16 bg-[#016F93]/20"></div>
+                <h3 className="text-[#016F93] text-[11px] font-black uppercase tracking-[0.5em] font-cinzel opacity-70">
+                  The Nosferi Dilemma
+                </h3>
+              </div>
+
+              <h2 className="text-5xl md:text-8xl font-black text-[#016F93] font-cinzel uppercase tracking-tighter leading-none drop-shadow-sm">
+                Story <br className="md:hidden" /> So Far
+              </h2>
+            </div>
+
+            {/* Accent Divider */}
+            <div className="h-2 w-28 bg-[#1192A3] shadow-[0_0_15px_rgba(17,146,163,0.2)]"></div>
+
+            {/* Synopsis Section */}
+            <div className="space-y-8">
+              <p className="text-xl md:text-2xl text-slate-700 leading-relaxed font-light">
+                In a world where magic is strictly regulated and shadows hide
+                ancient deities, a ragtag protection squad led by the impulsive
+                Rou Akei finds themselves at the heart of a cosmic conspiracy.
+                As the Nosferi circus brings illusions that mask dark truths,
+                the roots of the Olde Treehouse begin to tremble with a power
+                that could reshape Glory Peak forever.
+              </p>
+
+              <Link to="/chapters" className="inline-block">
+                <button className="group flex items-center gap-4 text-[#016F93] font-black uppercase text-xs tracking-[0.3em] hover:text-[#1192A3] transition-all">
+                  <span className="border-b-2 border-transparent group-hover:border-[#1192A3] pb-1 transition-all">
+                    Read All Chapters
+                  </span>
+                  <div className="p-2 bg-[#016F93]/5 rounded-full group-hover:bg-[#1192A3] group-hover:text-white transition-all text-[#016F93]">
+                    <Sparkles size={16} />
+                  </div>
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>
