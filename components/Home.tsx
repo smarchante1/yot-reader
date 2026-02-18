@@ -151,7 +151,7 @@ export const Home: React.FC = () => {
                 of "Augurs" a ragtag protection squad led by the impulsive Rou
                 Akei finds themselves at the heart of a government conspiracy.
                 What started as a chase for a rougue Ringmaster grows into a
-                search for trust and a test of trust.
+                search for truth and a test of trust.
               </p>
 
               <Link to="/chapters" className="inline-block">

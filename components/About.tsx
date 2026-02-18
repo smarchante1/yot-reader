@@ -24,12 +24,17 @@ export const About: React.FC = () => {
                 </h2>
               </div>
               <p className="text-slate-600 leading-relaxed text-lg">
-                <strong>{MANGA_TITLE}</strong> is a fantasy adventure manga.
+                <strong>{MANGA_TITLE}</strong> is a fantasy adventure manga
+                about magic, and choosing a family of your own when the world
+                seems to turn its back on you. It was created to add one more
+                crazy epic fantasy adventure to the pile. And to ask questions
+                about power, destiny, and the lengths we'll go to protect the
+                people we care about.
               </p>
             </div>
-            <div className="w-full md:w-1/3 aspect-[4/5] bg-slate-200 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+            <div className="w-full md:w-1/3 aspect-[1/1] bg-slate-200 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
               <img
-                src="https://picsum.photos/seed/about_story/600/800"
+                src="https://pub-c762db5339954ab98813a32e9aaa79ff.r2.dev/other/YOTLogo(final).png"
                 alt="Story Concept Art"
                 className="w-full h-full object-cover"
               />
@@ -51,12 +56,13 @@ export const About: React.FC = () => {
                 making manga was the best way to get this story out of their
                 head. In love with all things fantasy and esoteric,{' '}
                 {MANGA_TITLE} is their love letter to all the fun, whimsical,
-                mystical and macabre stories that inspired them growing up.
+                mystical and macabre stories and video games that inspired them
+                growing up.
               </p>
             </div>
             <div className="w-full md:w-1/3 aspect-square bg-slate-200 rounded-full overflow-hidden shadow-xl border-8 border-white">
               <img
-                src="https://picsum.photos/seed/about_creator/800/800"
+                src="https://pub-c762db5339954ab98813a32e9aaa79ff.r2.dev/other/sam-profile.png"
                 alt="Creator Avatar"
                 className="w-full h-full object-cover"
               />
