@@ -303,7 +303,7 @@ export const ChapterReader: React.FC = () => {
           </div>
         </div>
 
-        <EmojiReactionSection chapterId={chapterId} />
+        {/* <EmojiReactionSection chapterId={chapterId} /> */}
       </div>
     </div>
   );
