@@ -1,21 +1,19 @@
 import { Chapter, Character, Fanart, Episode } from './types';
-
 export const MANGA_TITLE = 'Ye Olde Treehouse';
 
 /**
  * PRODUCTION R2 URL
  * This is your public Cloudflare R2 bucket endpoint.
  */
-export const R2_BASE_URL =
-  'https://pub-c762db5339954ab98813a32e9aaa79ff.r2.dev';
-
+const R2_BASE_URL =
+  ((import.meta as any).env.VITE_R2_BASE_URL as string) ||
+  'https://assets.yeoldetreehouse.com';
 export const COLORS = {
   white: '#FFFFFF',
   lightBlue: '#E1F6FA',
   darkBlue: '#016F93',
   teal: '#1192A3',
 };
-
 export const SOCIAL_LINKS = {
   twitter: 'https://twitter.com/fifimangaka',
   instagram: 'https://instagram.com/fifimangaka',
@@ -35,6 +33,7 @@ export const generateMangaUrl = (
   pageNum: number,
 ): string => {
   const p3 = String(pageNum).padStart(3, '0');
+  // This will now work perfectly because R2_BASE_URL is guaranteed to be a string
   const base = R2_BASE_URL.endsWith('/') ? R2_BASE_URL : `${R2_BASE_URL}/`;
   const folderPart = folder
     ? folder.endsWith('/')
