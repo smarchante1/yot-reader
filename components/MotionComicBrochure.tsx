@@ -8,6 +8,7 @@ import {
   Film,
   ChevronRight,
 } from 'lucide-react';
+import { SOCIAL_LINKS } from '../constants';
 import { Button } from './Button';
 import { VoiceActorCarousel } from './VoiceActorCarousel';
 
@@ -50,13 +51,19 @@ export const MotionComicBrochure: React.FC = () => {
             >
               Preview Coming Soon
             </Button>
-            <Button
-              variant="outline"
-              className="py-6 px-12 text-sm uppercase font-cinzel tracking-widest !text-white !border-white hover:!bg-white hover:!text-black"
-              icon={<Youtube size={20} />}
+            <a
+              href={SOCIAL_LINKS.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Subscribe to Channel
-            </Button>
+              <Button
+                variant="outline"
+                className="py-6 px-12 text-sm uppercase font-cinzel tracking-widest !text-white !border-white hover:!bg-white hover:!text-black"
+                icon={<Youtube size={20} />}
+              >
+                Subscribe to Channel
+              </Button>
+            </a>
           </div>
         </div>
       </section>
