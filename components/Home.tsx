@@ -157,11 +157,11 @@ export const Home: React.FC = () => {
               <Link to="/chapters" className="inline-block">
                 <button className="group flex items-center gap-4 text-[#016F93] font-black uppercase text-xs tracking-[0.3em] hover:text-[#1192A3] transition-all">
                   <span className="border-b-2 border-transparent group-hover:border-[#1192A3] pb-1 transition-all">
-                    Explore the Library
+                    Explore the Series
                   </span>
-                  <div className="p-2 bg-[#016F93]/5 rounded-full group-hover:bg-[#1192A3] group-hover:text-white transition-all text-[#016F93]">
+                  {/* <div className="p-2 bg-[#016F93]/5 rounded-full group-hover:bg-[#1192A3] group-hover:text-white transition-all text-[#016F93]">
                     <Sparkles size={16} />
-                  </div>
+                  </div> */}
                 </button>
               </Link>
             </div>

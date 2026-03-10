@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Play,
   Info,
@@ -179,8 +180,8 @@ export const VideoEpisodes: React.FC = () => {
                 </button>
               )}
 
-              <button
-                onClick={toggleModal}
+              <Link
+                to="/motion-comic"
                 className="flex items-center gap-3 p-5 bg-white text-[#016F93] border border-[#E1F6FA] rounded-2xl hover:bg-[#F8FDFF] transition-all hover:scale-105 active:scale-95 shadow-sm"
               >
                 <div className="bg-[#E1F6FA] p-1.5 rounded-lg">
@@ -189,7 +190,7 @@ export const VideoEpisodes: React.FC = () => {
                 <span className="hidden sm:inline text-xs font-black uppercase tracking-widest">
                   About Project
                 </span>
-              </button>
+              </Link>
             </div>
           </div>
 

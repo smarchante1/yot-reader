@@ -41,3 +41,13 @@ export interface NavItem {
   label: string;
   path: string;
 }
+
+export interface VoiceActor {
+  id: string;
+  name: string;
+  characterName: string;
+  vaImageUrl: string;
+  charImageUrl: string;
+  twitter?: string;
+  instagram?: string;
+}

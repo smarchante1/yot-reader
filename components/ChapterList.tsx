@@ -32,12 +32,12 @@ export const ChapterList: React.FC = () => {
       {
         id: 4,
         title: 'Volume 4',
-        chapters: CHAPTERS.filter((c) => c.id >= 24 && c.id <= 28),
+        chapters: CHAPTERS.filter((c) => c.id >= 24 && c.id <= 29),
       },
       {
         id: 5,
         title: 'Volume 5+',
-        chapters: CHAPTERS.filter((c) => c.id >= 29),
+        chapters: CHAPTERS.filter((c) => c.id >= 30),
       },
     ].filter((v) => v.chapters.length > 0);
   }, []);

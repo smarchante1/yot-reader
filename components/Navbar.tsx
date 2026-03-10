@@ -35,6 +35,7 @@ export const Navbar: React.FC = () => {
     { label: 'Chapter 1', path: '/chapter/1' },
     { label: 'Chapters', path: '/chapters' },
     { label: 'Cast', path: '/characters' },
+    { label: 'Motion Comic', path: '/motion-comic' },
     { label: 'About', path: '/about' },
   ];
 
