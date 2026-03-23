@@ -37,6 +37,8 @@ export const About: React.FC = () => {
                 src="https://pub-c762db5339954ab98813a32e9aaa79ff.r2.dev/other/YOTLogo(final).png"
                 alt="Story Concept Art"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                loading="lazy"
               />
             </div>
           </div>

@@ -66,6 +66,7 @@ export const VideoEpisodes: React.FC = () => {
                   ? 'filter grayscale-[0.2] brightness-[0.75]'
                   : 'brightness-[0.9]'
               }`}
+              loading="lazy"
             />
 
             {/* Central Play Button Overlay */}
@@ -221,6 +222,7 @@ export const VideoEpisodes: React.FC = () => {
                 src={featuredEpisode.thumbnail}
                 className="w-full h-full object-cover"
                 alt="Modal Background"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
               <div className="absolute bottom-6 left-10">

@@ -16,6 +16,7 @@ export const Footer: React.FC = () => {
                 src="assets/logo.png"
                 alt="Logo Placeholder"
                 className="h-full w-auto object-contain"
+                loading="lazy"
               />
             </div>
             <p className="text-slate-400 max-w-xs leading-relaxed text-base font-light">

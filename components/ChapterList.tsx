@@ -176,6 +176,7 @@ export const ChapterList: React.FC = () => {
                 src={selectedChapter.thumbnail}
                 alt={selectedChapter.title}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end p-8">
                 <div className="space-y-2">

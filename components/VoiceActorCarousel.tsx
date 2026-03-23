@@ -50,6 +50,7 @@ export const VoiceActorCarousel: React.FC = () => {
                 src={VOICE_ACTORS[activeIndex].vaImageUrl}
                 alt={VOICE_ACTORS[activeIndex].name}
                 className="w-full h-full object-cover object-[50%_15%]"
+                loading="lazy"
               />
             </div>
             <h3 className="text-3xl md:text-4xl font-black text-[#016F93] font-cinzel uppercase tracking-tighter mb-2">
@@ -99,6 +100,7 @@ export const VoiceActorCarousel: React.FC = () => {
                 src={VOICE_ACTORS[activeIndex].charImageUrl}
                 alt={VOICE_ACTORS[activeIndex].characterName}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
             <h3 className="text-3xl md:text-4xl font-black text-[#016F93] font-cinzel uppercase tracking-tighter mb-2">

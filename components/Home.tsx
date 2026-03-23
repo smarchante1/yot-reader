@@ -17,6 +17,7 @@ export const Home: React.FC = () => {
             src="assets/cover.JPG"
             alt="Ye Olde Treehouse Immersive Art"
             className="w-full h-full object-cover opacity-100"
+            // Omit loading="lazy" here so this hero image loads instantly
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/5 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
@@ -61,6 +62,7 @@ export const Home: React.FC = () => {
                 src={latestChapter.thumbnail}
                 alt={latestChapter.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               <div className="absolute bottom-4 left-4">
@@ -116,6 +118,7 @@ export const Home: React.FC = () => {
             src="assets/YOT-CH23_017.png"
             alt="Arc 1 Key Visual"
             className="w-full h-full object-cover grayscale-[40%] opacity-40 mix-blend-multiply"
+            loading="lazy"
           />
           {/* Light Blue Cinematic Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#E1F6FA] via-[#E1F6FA]/95 to-transparent"></div>

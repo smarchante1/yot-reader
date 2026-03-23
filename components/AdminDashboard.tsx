@@ -55,7 +55,9 @@ export const AdminDashboard: React.FC = () => {
 
   // Per-Chapter Sync Settings (to handle inconsistent naming)
   const [pageCount, setPageCount] = useState(20);
-  const [filenamePattern, setFilenamePattern] = useState('YOT-CH{ch}_{p3}.png');
+  const [filenamePattern, setFilenamePattern] = useState(
+    'YOT-CH{ch}_{p3}.webp',
+  );
 
   const ADMIN_PASSWORD = '0411';
 
@@ -103,9 +105,9 @@ export const AdminDashboard: React.FC = () => {
       setPageCount(currentChapter.pageCount || 20);
       // Logic for naming convention defaults
       if (currentChapter.id === 1) {
-        setFilenamePattern('YOT-CHAP1_{p3}.png');
+        setFilenamePattern('YOT-CHAP1_{p3}.webp');
       } else {
-        setFilenamePattern('YOT-CH{ch}_{p3}.png');
+        setFilenamePattern('YOT-CH{ch}_{p3}.webp');
       }
     }
   }, [editingChapterId]);
@@ -312,7 +314,7 @@ export const AdminDashboard: React.FC = () => {
                     <input
                       className="w-full bg-slate-50 border border-slate-200 p-3 text-xs font-mono outline-none focus:border-[#1192A3]"
                       value={filenamePattern}
-                      placeholder="e.g. Manga_Ch{ch}_p{p3}.jpg"
+                      placeholder="e.g. Manga_Ch{ch}_p{p3}.webp"
                       onChange={(e) => setFilenamePattern(e.target.value)}
                     />
                     <div className="mt-2 flex gap-3 text-[8px] text-slate-400 font-bold uppercase tracking-widest">
