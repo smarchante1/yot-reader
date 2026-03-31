@@ -412,7 +412,7 @@ const CHAPTER_METADATA: ChapterMetadata[] = [
     prefix: 'YOT-CH19',
     folder: 'chapter19',
     synopsis: `The inner sanctum of the Nosferi family is revealed. Drendith's performance reaches a fever pitch as the lines between illusion and reality completely dissolve.`,
-    pageCount: 19,
+    pageCount: 18,
     spreads: [],
     skips: [],
     dateReleased: '7/15/2025',
