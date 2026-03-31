@@ -60,7 +60,7 @@ export const Navbar: React.FC = () => {
           <Link to="/" className="flex items-center gap-2" onClick={closeMenu}>
             <div className="h-16 flex items-center">
               <img
-                src="assets/logo.png"
+                src="assets/logo.webp"
                 alt="Logo Placeholder"
                 className="h-full w-auto object-contain"
                 onError={(e) => {

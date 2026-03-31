@@ -14,7 +14,7 @@ export const Home: React.FC = () => {
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-slate-950">
         <div className="absolute inset-0 z-0">
           <img
-            src="assets/cover.JPG"
+            src="assets/Cover.JPG"
             alt="Ye Olde Treehouse Immersive Art"
             className="w-full h-full object-cover opacity-100"
             // Omit loading="lazy" here so this hero image loads instantly

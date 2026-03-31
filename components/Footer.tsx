@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col items-center md:items-start">
             <div className="mb-18 h-24 flex items-center justify-center md:justify-start">
               <img
-                src="assets/logo.png"
+                src="assets/logo.webp"
                 alt="Logo Placeholder"
                 className="h-full w-auto object-contain"
                 loading="lazy"
