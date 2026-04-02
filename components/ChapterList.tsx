@@ -32,12 +32,12 @@ export const ChapterList: React.FC = () => {
       {
         id: 4,
         title: 'Volume 4',
-        chapters: CHAPTERS.filter((c) => c.id >= 24 && c.id <= 29),
+        chapters: CHAPTERS.filter((c) => c.id >= 24 && c.id <= 30),
       },
       {
         id: 5,
         title: 'Volume 5+',
-        chapters: CHAPTERS.filter((c) => c.id >= 30),
+        chapters: CHAPTERS.filter((c) => c.id >= 31),
       },
     ].filter((v) => v.chapters.length > 0);
   }, []);
@@ -180,9 +180,6 @@ export const ChapterList: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end p-8">
                 <div className="space-y-2">
-                  <p className="text-[#1192A3] text-[10px] font-black uppercase tracking-[0.4em]">
-                    Chapter {selectedChapter.id}
-                  </p>
                   <h2 className="text-3xl font-black text-white font-cinzel leading-tight uppercase tracking-tight">
                     {selectedChapter.title}
                   </h2>

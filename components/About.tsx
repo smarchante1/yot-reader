@@ -38,7 +38,6 @@ export const About: React.FC = () => {
                 alt="Story Concept Art"
                 className="w-full h-full object-cover"
                 loading="lazy"
-                loading="lazy"
               />
             </div>
           </div>

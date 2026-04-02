@@ -545,8 +545,6 @@ const CHAPTER_METADATA: ChapterMetadata[] = [
     thumbnailPage: 0,
     hasCover: true,
     coverFilename: 'CHCOVER28.png',
-    heroImagePage: 5,
-    heroImagePosition: 'center top',
   },
   {
     id: 29,
@@ -564,13 +562,29 @@ const CHAPTER_METADATA: ChapterMetadata[] = [
     heroImagePage: 5,
     heroImagePosition: 'center top',
   },
+  {
+    id: 30,
+    title: 'Chapter 30: Come, Child...',
+    prefix: 'YOT-CH30',
+    folder: 'chapter30',
+    synopsis: `Elizabeth Cod and Zazi have imprisoned Kenzi in Altamerian, to keep the girl from causing trouble. Little do they know, something dark within her will make them come to regret this fatal error.`,
+    pageCount: 14,
+    spreads: [],
+    skips: [],
+    dateReleased: '4/2/2026',
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CH30COVER.png',
+    heroImagePage: 5,
+    heroImagePosition: 'center top',
+  },
 ];
 
 /**
  * FINAL CHAPTERS EXPORT
  * Generates the full list of chapters using metadata or smart defaults.
  */
-export const CHAPTERS: Chapter[] = Array.from({ length: 29 }, (_, i) => {
+export const CHAPTERS: Chapter[] = Array.from({ length: 30 }, (_, i) => {
   const id = i + 1;
   const meta = CHAPTER_METADATA.find((m) => m.id === id);
 

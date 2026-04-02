@@ -7,18 +7,23 @@ import { VideoEpisodes } from './VideoEpisodes';
 
 export const Home: React.FC = () => {
   const latestChapter = CHAPTERS[CHAPTERS.length - 1];
+  const volumeStarts = [1, 8, 16, 24];
+  const currentVolumeStart =
+    volumeStarts.filter((start) => start <= latestChapter.id).pop() || 1;
+  const volumeChapter = CHAPTERS.find((ch) => ch.id === currentVolumeStart)!;
 
   return (
     <div className="flex flex-col min-h-screen">
       {/* Immersive Overlaid Hero Section */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-slate-950">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="assets/Cover.JPG"
-            alt="Ye Olde Treehouse Immersive Art"
-            className="w-full h-full object-cover opacity-100"
-            // Omit loading="lazy" here so this hero image loads instantly
-          />
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url(${volumeChapter.thumbnail})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+          }}
+        >
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/5 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
         </div>
