@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Specifically inviting AI bots to ensure they feel welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://yeoldetreehouse.com/sitemap.xml
