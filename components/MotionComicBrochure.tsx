@@ -153,10 +153,10 @@ export const MotionComicBrochure: React.FC = () => {
               <div className="flex flex-col gap-6 max-w-md">
                 <div className="flex items-center justify-between text-white/60 text-xs font-black uppercase tracking-widest">
                   <span>Voice Recording</span>
-                  <span className="text-[#1192A3]">20%</span>
+                  <span className="text-[#1192A3]">44%</span>
                 </div>
                 <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                  <div className="h-full w-[10%] bg-[#1192A3]"></div>
+                  <div className="h-full w-[44%] bg-[#1192A3]"></div>
                 </div>
 
                 <div className="flex items-center justify-between text-white/60 text-xs font-black uppercase tracking-widest">
