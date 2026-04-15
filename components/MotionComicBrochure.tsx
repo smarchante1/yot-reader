@@ -225,9 +225,7 @@ export const MotionComicBrochure: React.FC = () => {
                 We've just wrapped up our Season 1 casting call (2400
                 auditions!) and VA recording is underway! Volume 4 of the
                 serialized manga is being completed, before work begins on
-                remastering Volume 1. Meanwhile, our music director is hard at
-                work on the ost and the hunt for sound designers will begin
-                soon.
+                remastering Volume 1.
               </p>
 
               <div className="flex flex-col gap-6 max-w-md">
