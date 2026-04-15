@@ -7,6 +7,8 @@ import {
   PenTool,
   Film,
   ChevronRight,
+  User,
+  Video,
 } from 'lucide-react';
 import { SOCIAL_LINKS } from '../constants';
 import { Button } from './Button';
@@ -70,6 +72,84 @@ export const MotionComicBrochure: React.FC = () => {
 
       {/* The Voice Actor Carousel Section - Moved up */}
       <VoiceActorCarousel />
+
+      {/* The Crew Section */}
+      <section className="py-24 max-w-7xl mx-auto px-6 border-t border-[#E1F6FA]/50">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-black text-[#016F93] font-cinzel uppercase tracking-tighter mb-4">
+            The <span className="text-[#1192A3]">Crew</span>
+          </h2>
+          <p className="text-slate-500 uppercase tracking-widest text-xs font-bold">
+            The super team behind the screen
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Director */}
+          <div className="bg-white p-8 rounded-[2rem] border border-[#E1F6FA] shadow-xl hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center group">
+            <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-[#E1F6FA] group-hover:border-[#1192A3] transition-colors shadow-lg">
+              <img
+                src="https://pub-c762db5339954ab98813a32e9aaa79ff.r2.dev/other/sam-profile.png"
+                alt="Sam - Director"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <h3 className="text-2xl font-black font-cinzel text-[#016F93] uppercase mb-1">
+              SAM
+            </h3>
+            <p className="text-[#1192A3] text-[10px] font-black uppercase tracking-[0.2em]">
+              Director & Story/Art
+            </p>
+          </div>
+
+          {/* Music */}
+          <div className="bg-white p-8 rounded-[2rem] border border-[#E1F6FA] shadow-xl hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center group">
+            <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-[#E1F6FA] group-hover:border-[#1192A3] transition-colors shadow-lg">
+              <img
+                src="https://assets.yeoldetreehouse.com/other/drew.JPG"
+                alt="Drew - Music Director"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <h3 className="text-2xl font-black font-cinzel text-[#016F93] uppercase mb-1">
+              Drew
+            </h3>
+            <p className="text-[#1192A3] text-[10px] font-black uppercase tracking-[0.2em]">
+              Music Director
+            </p>
+          </div>
+
+          {/* Sound Design */}
+          <div className="bg-white p-8 rounded-[2rem] border border-[#E1F6FA] shadow-xl hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center group">
+            <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-[#E1F6FA] group-hover:border-[#1192A3] transition-colors shadow-lg">
+              <img
+                src="https://assets.yeoldetreehouse.com/other/pavle.jpg"
+                alt="Pavle - Sound Designer"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <h3 className="text-2xl font-black font-cinzel text-[#016F93] uppercase mb-1">
+              Pavle
+            </h3>
+            <p className="text-[#1192A3] text-[10px] font-black uppercase tracking-[0.2em]">
+              Lead Sound Designer
+            </p>
+          </div>
+
+          {/* Video Editor */}
+          <div className="bg-white p-8 rounded-[2rem] border border-[#E1F6FA] shadow-xl hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center group">
+            <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-[#E1F6FA] group-hover:border-[#1192A3] transition-colors shadow-lg bg-[#F8FDFF] flex items-center justify-center text-[#1192A3]">
+              <Video size={48} strokeWidth={1.5} />
+            </div>
+            <h3 className="text-2xl font-black font-cinzel text-[#016F93] uppercase mb-1">
+              Ethan
+            </h3>
+            <p className="text-[#1192A3] text-[10px] font-black uppercase tracking-[0.2em]">
+              Lead Video Editor
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Feature Grid - Moved down */}
       <section className="py-32 max-w-7xl mx-auto px-6">
