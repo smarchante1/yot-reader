@@ -138,8 +138,12 @@ export const MotionComicBrochure: React.FC = () => {
 
           {/* Video Editor */}
           <div className="bg-white p-8 rounded-[2rem] border border-[#E1F6FA] shadow-xl hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center group">
-            <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-[#E1F6FA] group-hover:border-[#1192A3] transition-colors shadow-lg bg-[#F8FDFF] flex items-center justify-center text-[#1192A3]">
-              <Video size={48} strokeWidth={1.5} />
+            <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-[#E1F6FA] group-hover:border-[#1192A3] transition-colors shadow-lg">
+              <img
+                src="https://assets.yeoldetreehouse.com/other/Ethan.jpg"
+                alt="Ethan - Lead Video Editor"
+                className="w-full h-full object-cover"
+              />
             </div>
             <h3 className="text-2xl font-black font-cinzel text-[#016F93] uppercase mb-1">
               Ethan
@@ -231,10 +235,10 @@ export const MotionComicBrochure: React.FC = () => {
               <div className="flex flex-col gap-6 max-w-md">
                 <div className="flex items-center justify-between text-white/60 text-xs font-black uppercase tracking-widest">
                   <span>Voice Recording</span>
-                  <span className="text-[#1192A3]">44%</span>
+                  <span className="text-[#1192A3]">62%</span>
                 </div>
                 <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                  <div className="h-full w-[44%] bg-[#1192A3]"></div>
+                  <div className="h-full w-[62%] bg-[#1192A3]"></div>
                 </div>
 
                 <div className="flex items-center justify-between text-white/60 text-xs font-black uppercase tracking-widest">
