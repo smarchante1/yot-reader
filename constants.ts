@@ -578,78 +578,97 @@ const CHAPTER_METADATA: ChapterMetadata[] = [
     heroImagePage: 5,
     heroImagePosition: 'center top',
   },
+  {
+    id: 31,
+    title: 'Chapter 31: Fatal Attraction',
+    prefix: 'YOT-CH31',
+    folder: 'chapter31',
+    synopsis: `Commander Valen goes hunting for the final page in the top secret Project V Tigris documents. But he bumps into an unexpected royal, who has more than a few secrets of her own.`,
+    pageCount: 19,
+    spreads: [],
+    skips: [],
+    dateReleased: '5/6/2026',
+    thumbnailPage: 0,
+    hasCover: true,
+    coverFilename: 'CH31COVER.png',
+    heroImagePage: 5,
+    heroImagePosition: 'center top',
+  },
 ];
 
 /**
  * FINAL CHAPTERS EXPORT
  * Generates the full list of chapters using metadata or smart defaults.
  */
-export const CHAPTERS: Chapter[] = Array.from({ length: 30 }, (_, i) => {
-  const id = i + 1;
-  const meta = CHAPTER_METADATA.find((m) => m.id === id);
+export const CHAPTERS: Chapter[] = Array.from(
+  { length: CHAPTER_METADATA.length },
+  (_, i) => {
+    const id = i + 1;
+    const meta = CHAPTER_METADATA.find((m) => m.id === id);
 
-  const title = meta?.title || `Chapter ${id}: Upcoming Adventure`;
-  const synopsis = meta?.synopsis || `The saga continues in Chapter ${id}.`;
-  const pageCount = meta?.pageCount || 20;
-  const dateReleased = meta?.dateReleased || 'TBA';
-  const prefix = meta?.prefix || `YOT-CHAP${id}`;
-  const folder = meta !== undefined ? meta.folder : `chapter${id}`;
-  const spreads = meta?.spreads || [];
-  const skips = meta?.skips || [];
-  const thumbnailPage = meta?.thumbnailPage ?? 1;
-  const hasCover = meta?.hasCover || false;
+    const title = meta?.title || `Chapter ${id}: Upcoming Adventure`;
+    const synopsis = meta?.synopsis || `The saga continues in Chapter ${id}.`;
+    const pageCount = meta?.pageCount || 20;
+    const dateReleased = meta?.dateReleased || 'TBA';
+    const prefix = meta?.prefix || `YOT-CHAP${id}`;
+    const folder = meta !== undefined ? meta.folder : `chapter${id}`;
+    const spreads = meta?.spreads || [];
+    const skips = meta?.skips || [];
+    const thumbnailPage = meta?.thumbnailPage ?? 1;
+    const hasCover = meta?.hasCover || false;
 
-  const images: string[] = [];
-  const base = R2_BASE_URL.endsWith('/') ? R2_BASE_URL : `${R2_BASE_URL}/`;
-  const folderPart = folder
-    ? folder.endsWith('/')
-      ? folder
-      : `${folder}/`
-    : '';
+    const images: string[] = [];
+    const base = R2_BASE_URL.endsWith('/') ? R2_BASE_URL : `${R2_BASE_URL}/`;
+    const folderPart = folder
+      ? folder.endsWith('/')
+        ? folder
+        : `${folder}/`
+      : '';
 
-  const isVolumeStart = [1, 8, 16, 24].includes(id);
+    const isVolumeStart = [1, 8, 16, 24].includes(id);
 
-  // If chapter has a cover and is a volume start, add it first
-  if (hasCover && isVolumeStart) {
-    const coverFilename = meta?.coverFilename || 'Cover.jpg';
-    images.push(`${base}${folderPart}${coverFilename}`);
-  }
-
-  // Generate pages starting from 1
-  for (let p = 1; p <= pageCount; p++) {
-    if (skips.includes(p)) continue;
-
-    if (spreads.includes(p)) {
-      const p1 = String(p).padStart(3, '0');
-      const p2 = String(p + 1).padStart(3, '0');
-      images.push(`${base}${folderPart}${prefix}_${p1}_${p2}.png`);
-      p++;
-    } else {
-      images.push(generateMangaUrl(prefix, folder, p));
+    // If chapter has a cover and is a volume start, add it first
+    if (hasCover && isVolumeStart) {
+      const coverFilename = meta?.coverFilename || 'Cover.jpg';
+      images.push(`${base}${folderPart}${coverFilename}`);
     }
-  }
 
-  // Determine thumbnail
-  let thumbnail = images[0] || '';
-  if (thumbnailPage === 0 && hasCover) {
-    const coverFilename = meta?.coverFilename || 'Cover.jpg';
-    thumbnail = `${base}${folderPart}${coverFilename}`;
-  } else if (thumbnailPage > 0) {
-    const offset = isVolumeStart && hasCover ? 1 : 0;
-    thumbnail = images[offset + thumbnailPage - 1] || images[0] || '';
-  }
+    // Generate pages starting from 1
+    for (let p = 1; p <= pageCount; p++) {
+      if (skips.includes(p)) continue;
 
-  return {
-    id,
-    title,
-    synopsis,
-    pageCount,
-    dateReleased,
-    images,
-    thumbnail,
-    thumbnailPage,
-  };
-});
+      if (spreads.includes(p)) {
+        const p1 = String(p).padStart(3, '0');
+        const p2 = String(p + 1).padStart(3, '0');
+        images.push(`${base}${folderPart}${prefix}_${p1}_${p2}.png`);
+        p++;
+      } else {
+        images.push(generateMangaUrl(prefix, folder, p));
+      }
+    }
+
+    // Determine thumbnail
+    let thumbnail = images[0] || '';
+    if (thumbnailPage === 0 && hasCover) {
+      const coverFilename = meta?.coverFilename || 'Cover.jpg';
+      thumbnail = `${base}${folderPart}${coverFilename}`;
+    } else if (thumbnailPage > 0) {
+      const offset = hasCover && isVolumeStart ? 1 : 0;
+      thumbnail = images[offset + thumbnailPage - 1] || images[0] || '';
+    }
+
+    return {
+      id,
+      title,
+      synopsis,
+      pageCount,
+      dateReleased,
+      images,
+      thumbnail,
+      thumbnailPage,
+    };
+  },
+);
 
 export const LATEST_CHAPTER_ID =
   CHAPTER_METADATA[CHAPTER_METADATA.length - 1]?.id || 1;
