@@ -27,8 +27,43 @@ const ReaderPage: React.FC<{
   onPrev?: () => void;
   isFirst?: boolean;
   isLast?: boolean;
-}> = ({ url, pageNum, isPaged, onNext, onPrev, isFirst, isLast }) => {
+  isPriority?: boolean;
+}> = ({
+  url,
+  pageNum,
+  isPaged,
+  onNext,
+  onPrev,
+  isFirst,
+  isLast,
+  isPriority,
+}) => {
   const [isZoomed, setIsZoomed] = useState(false);
+  const [isIntersecting, setIsIntersecting] = useState(isPriority || isPaged);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Manually observe when the image container is near the viewport
+  useEffect(() => {
+    if (isPriority || isPaged) {
+      setIsIntersecting(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsIntersecting(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '1500px 0px' }, // Trigger download 1500px before it scrolls into view
+    );
+
+    if (containerRef.current) observer.observe(containerRef.current);
+
+    return () => observer.disconnect();
+  }, [isPriority, isPaged]);
+
   const toggleZoom = () => setIsZoomed(!isZoomed);
 
   // Auto-detect double-page spreads based on filename underscores
@@ -63,13 +98,15 @@ const ReaderPage: React.FC<{
         </div>
 
         <div
+          ref={containerRef}
           className={`${sizingClasses} relative z-0 flex items-center justify-center bg-white shadow-[0_0_60px_rgba(0,0,0,0.1)]`}
         >
           <img
             src={url}
             alt={`Page ${pageNum}`}
             className="w-full h-auto object-contain block"
-            loading="eager"
+            loading={isPriority ? 'eager' : 'lazy'}
+            decoding="async"
           />
         </div>
       </div>
@@ -78,18 +115,23 @@ const ReaderPage: React.FC<{
 
   return (
     <div
+      ref={containerRef}
       className={`relative group transition-all duration-300 ease-in-out cursor-zoom-in my-4 shadow-xl bg-white min-h-[50vh] sm:min-h-[80vh] flex items-center justify-center ${isZoomed ? 'w-full max-w-none' : sizingClasses}`}
       onClick={toggleZoom}
     >
-      <div className="absolute inset-0 flex items-center justify-center bg-slate-50 text-slate-300 font-black text-[10px] uppercase tracking-widest animate-pulse z-0 rounded-sm">
-        Loading Page {pageNum}
-      </div>
-      <img
-        src={url}
-        alt={`Page ${pageNum}`}
-        className={`block w-full h-auto relative z-10 bg-white ${isZoomed ? 'cursor-zoom-out' : ''}`}
-        loading="lazy"
-      />
+      {!isIntersecting ? (
+        <div className="absolute inset-0 flex items-center justify-center bg-slate-50 text-slate-300 font-black text-[10px] uppercase tracking-widest animate-pulse z-0 rounded-sm">
+          Loading Page {pageNum}...
+        </div>
+      ) : (
+        <img
+          src={url}
+          alt={`Page ${pageNum}`}
+          className={`block w-full h-auto relative z-10 bg-white ${isZoomed ? 'cursor-zoom-out' : ''}`}
+          loading={isPriority ? 'eager' : 'lazy'}
+          decoding="async"
+        />
+      )}
       <div className="absolute z-20 top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none bg-black/50 p-2 rounded-full text-white">
         {isZoomed ? <ZoomOut size={20} /> : <ZoomIn size={20} />}
       </div>
@@ -217,7 +259,12 @@ export const ChapterReader: React.FC = () => {
         {readingMode === 'vertical' ? (
           <div className="flex flex-col items-center w-full px-4">
             {chapter.images.map((url, index) => (
-              <ReaderPage key={index} url={url} pageNum={index + 1} />
+              <ReaderPage
+                key={index}
+                url={url}
+                pageNum={index + 1}
+                isPriority={index < 2}
+              />
             ))}
           </div>
         ) : (
@@ -230,7 +277,27 @@ export const ChapterReader: React.FC = () => {
               onPrev={handlePrevPage}
               isFirst={currentPage === 0}
               isLast={currentPage === chapter.images.length - 1}
+              isPriority={true}
             />
+
+            {/* Paged Mode: Preload the next 2 pages invisibly so they are instantly ready */}
+            <div className="hidden" aria-hidden="true">
+              {currentPage + 1 < chapter.images.length && (
+                <img
+                  src={chapter.images[currentPage + 1]}
+                  alt=""
+                  decoding="async"
+                />
+              )}
+              {currentPage + 2 < chapter.images.length && (
+                <img
+                  src={chapter.images[currentPage + 2]}
+                  alt=""
+                  decoding="async"
+                />
+              )}
+            </div>
+
             {/* Paged Navigation Bar */}
             <div
               className={`fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4 bg-white/90 backdrop-blur-xl px-6 py-3 rounded-full border border-[#E1F6FA] z-50 shadow-2xl transition-transform duration-300 ${isVisible ? 'translate-y-0' : 'translate-y-[200%]'}`}
