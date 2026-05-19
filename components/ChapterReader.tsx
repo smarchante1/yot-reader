@@ -78,16 +78,19 @@ const ReaderPage: React.FC<{
 
   return (
     <div
-      className={`relative transition-all duration-300 ease-in-out cursor-zoom-in my-4 shadow-xl bg-white ${isZoomed ? 'w-full max-w-none' : sizingClasses}`}
+      className={`relative group transition-all duration-300 ease-in-out cursor-zoom-in my-4 shadow-xl bg-white min-h-[50vh] sm:min-h-[80vh] flex items-center justify-center ${isZoomed ? 'w-full max-w-none' : sizingClasses}`}
       onClick={toggleZoom}
     >
+      <div className="absolute inset-0 flex items-center justify-center bg-slate-50 text-slate-300 font-black text-[10px] uppercase tracking-widest animate-pulse z-0 rounded-sm">
+        Loading Page {pageNum}
+      </div>
       <img
         src={url}
         alt={`Page ${pageNum}`}
-        className={`block w-full h-auto ${isZoomed ? 'cursor-zoom-out' : ''}`}
+        className={`block w-full h-auto relative z-10 bg-white ${isZoomed ? 'cursor-zoom-out' : ''}`}
         loading="lazy"
       />
-      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none bg-black/50 p-2 rounded-full text-white">
+      <div className="absolute z-20 top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none bg-black/50 p-2 rounded-full text-white">
         {isZoomed ? <ZoomOut size={20} /> : <ZoomIn size={20} />}
       </div>
     </div>
