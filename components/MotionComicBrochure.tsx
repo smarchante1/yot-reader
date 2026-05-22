@@ -223,13 +223,12 @@ export const MotionComicBrochure: React.FC = () => {
               </span>
               <h2 className="text-4xl md:text-7xl font-black text-white font-cinzel uppercase tracking-tighter mb-8 leading-none">
                 PRODUCTION <br />{' '}
-                <span className="text-[#1192A3]">PHASE 1</span>
+                <span className="text-[#1192A3]">PHASE 2</span>
               </h2>
               <p className="text-slate-400 text-lg md:text-xl font-light leading-relaxed mb-12">
-                We've just wrapped up our Season 1 casting call (2400
-                auditions!) and VA recording is underway! Volume 4 of the
-                serialized manga is being completed, before work begins on
-                remastering Volume 1.
+                VA Recording is complete! We are now working on remastering all
+                chapters from Volume 1, starting with Chapter 1. We are also
+                starting motion editing, sound design and music composition.
               </p>
 
               <div className="flex flex-col gap-6 max-w-md">
