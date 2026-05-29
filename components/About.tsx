@@ -52,13 +52,13 @@ export const About: React.FC = () => {
                 </h2>
               </div>
               <p className="text-slate-600 leading-relaxed text-lg">
-                The series is written and illustrated by <strong>SAM</strong>, a
-                former engineer turned mangaka who decided one day in 2024 that
-                making manga was the best way to get this story out of their
-                head. In love with all things fantasy and esoteric,{' '}
-                {MANGA_TITLE} is their love letter to all the fun, whimsical,
-                mystical and macabre stories and video games that inspired them
-                growing up.
+                The series is written and illustrated by <strong>SAM</strong>{' '}
+                (Stephanie Marchante), a former FAANG engineer turned mangaka
+                who decided one day in 2024 that making manga was the best way
+                to get this story out of their head. In love with all things
+                fantasy and esoteric, {MANGA_TITLE} is their love letter to all
+                the fun, whimsical, mystical and macabre stories and video games
+                that inspired them growing up.
               </p>
             </div>
             <div className="w-full md:w-1/3 aspect-square bg-slate-200 rounded-full overflow-hidden shadow-xl border-8 border-white">
