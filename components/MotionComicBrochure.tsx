@@ -175,17 +175,9 @@ export const MotionComicBrochure: React.FC = () => {
               Original Soundtrack
             </h3>
             <p className="text-slate-500 font-light leading-relaxed">
-              A custom soundtrack composed by YOTs very own Music Director,{' '}
-              <a
-                href="https://www.instagram.com/shredberryguitar/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#016F93] font-black uppercase tracking-widest text-xs border-b-2 border-[#1192A3]/20 hover:border-[#1192A3] transition-all"
-              >
-                Shredberry
-              </a>
-              . With signature horns, guitar solos and whimsical melodies, the
-              score captures the YOTs chaotic magic.
+              A custom soundtrack composed by YOTs very own Music Director. With
+              signature horns, guitar solos and whimsical melodies, the score
+              captures the YOTs chaotic magic.
             </p>
           </div>
 
