@@ -1,13 +1,21 @@
-import { Chapter, Character, Fanart, Episode, VoiceActor } from './types';
+import {
+  Chapter,
+  Character,
+  Fanart,
+  Episode,
+  VoiceActor,
+  NewsPost,
+} from './types';
 export const MANGA_TITLE = 'Ye Olde Treehouse';
 
 /**
  * PRODUCTION R2 URL
  * This is your public Cloudflare R2 bucket endpoint.
  */
-const R2_BASE_URL =
+export const R2_BASE_URL =
   ((import.meta as any).env.VITE_R2_BASE_URL as string) ||
   'https://assets.yeoldetreehouse.com';
+
 export const COLORS = {
   white: '#FFFFFF',
   lightBlue: '#E1F6FA',
@@ -24,6 +32,9 @@ export const SOCIAL_LINKS = {
 };
 
 export const PLACEHOLDER_SERVICE = 'https://picsum.photos';
+
+export const GENERIC_FANART_PLACEHOLDER =
+  'https://placehold.co/800x1000/016f93/ffffff.png?text=Fanart+Preview';
 /**
  * DRY URL GENERATOR
  * Robustly handles slashes and constructs paths for R2 assets.
@@ -746,7 +757,17 @@ export const CHARACTERS: Character[] = [
   },
 ];
 
-export const FANART: Fanart[] = [];
+export const FANART: Fanart[] = [
+  {
+    id: 'fanart-1',
+    title: 'Placeholder Fanart',
+    artist: 'Community Submission',
+    imageUrl: GENERIC_FANART_PLACEHOLDER,
+    artistUrl: 'https://instagram.com/yeoldetreehouse',
+    socialHandle: '@yeoldetreehouse',
+  },
+];
+
 export const PATREON_URL = SOCIAL_LINKS.patreon;
 
 export const saveToCMS = (_data?: any) => {};

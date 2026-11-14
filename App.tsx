@@ -10,6 +10,8 @@ import { CastPage } from './components/CastPage';
 import { About } from './components/About';
 import { CHAPTERS } from './constants';
 import { MotionComicBrochure } from './components/MotionComicBrochure';
+import { CommunityPage } from './components/CommunityPage';
+import { NewsPage } from './components/NewsPage';
 
 const App: React.FC = () => {
   return (
@@ -26,6 +28,8 @@ const App: React.FC = () => {
             <Route path="/characters" element={<CastPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/motion-comic" element={<MotionComicBrochure />} />
+            <Route path="/community" element={<CommunityPage />} />
+            <Route path="/news/:id" element={<NewsPage />} />
 
             <Route
               path="/latest"

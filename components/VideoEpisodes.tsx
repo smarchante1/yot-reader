@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Play,
@@ -9,13 +9,13 @@ import {
   X,
   Youtube,
   Star,
-  Maximize,
-  Volume2,
 } from 'lucide-react';
 import { EPISODES, SOCIAL_LINKS, COLORS } from '../constants';
 
 export const VideoEpisodes: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isInlinePlaying, setIsInlinePlaying] = useState(false);
+  const inlineVideoRef = useRef<HTMLVideoElement>(null);
   const featuredEpisode = EPISODES[0];
 
   if (!featuredEpisode) return null;
@@ -44,7 +44,7 @@ export const VideoEpisodes: React.FC = () => {
             <div className="h-px w-8 bg-current opacity-30"></div>
           </div>
           <h2 className="text-5xl md:text-8xl font-black text-[#016F93] font-cinzel uppercase tracking-tighter leading-none">
-            COMING SOON
+            Trailer 1
           </h2>
         </div>
       </div>
@@ -57,83 +57,37 @@ export const VideoEpisodes: React.FC = () => {
             onClick={toggleModal}
             className="relative aspect-video rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-[0_40px_100px_rgba(0,0,0,0.25)] bg-black group-hover:border-[#1192A3]/40 transition-all duration-700 cursor-pointer"
           >
-            {/* Background Image */}
-            <img
-              src={featuredEpisode.thumbnail}
-              alt={featuredEpisode.title}
-              className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 scale-105 group-hover:scale-100 ${
-                featuredEpisode.comingSoon
-                  ? 'filter grayscale-[0.2] brightness-[0.75]'
-                  : 'brightness-[0.9]'
-              }`}
-              loading="lazy"
+            <video
+              ref={inlineVideoRef}
+              src="/assets/Trailer.mov"
+              poster="/assets/Trailer-thumbnail.jpg"
+              controls
+              preload="none"
+              playsInline
+              onClick={(event) => event.stopPropagation()}
+              onPlay={() => setIsInlinePlaying(true)}
+              onEnded={() => setIsInlinePlaying(false)}
+              className="absolute inset-0 w-full h-full object-cover"
+              aria-label={featuredEpisode.title}
             />
 
-            {/* Central Play Button Overlay */}
-            <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
-              <div className="w-20 h-20 md:w-32 md:h-32 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center shadow-2xl transform transition-all duration-500 group-hover:scale-110 group-hover:bg-[#1192A3]/30 group-hover:border-[#1192A3]/50">
+            {!isInlinePlaying && (
+              <button
+                type="button"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  void inlineVideoRef.current?.play();
+                }}
+                aria-label={`Play ${featuredEpisode.title}`}
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-20 h-20 md:w-32 md:h-32 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center shadow-2xl transform transition-all duration-500 group-hover:scale-110 group-hover:bg-[#1192A3]/30 group-hover:border-[#1192A3]/50"
+              >
                 <Play
                   size={48}
                   className="text-white fill-current ml-2 transition-transform duration-500"
                 />
-              </div>
-            </div>
+              </button>
+            )}
 
-            {/* Simulated Video UI: Progress Bar and Controls */}
-            <div className="absolute bottom-0 left-0 right-0 z-40 p-6 md:p-10 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-              {/* Progress Bar */}
-              <div className="relative w-full h-1.5 bg-white/20 rounded-full overflow-hidden mb-4">
-                <div className="absolute top-0 left-0 h-full w-[45%] bg-[#1192A3] rounded-full relative">
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-lg"></div>
-                </div>
-                <div className="absolute top-0 left-0 h-full w-[70%] bg-white/10 rounded-full -z-10"></div>
-              </div>
-
-              {/* Player Controls Icons */}
-              <div className="flex items-center justify-between text-white/70">
-                <div className="flex items-center gap-6">
-                  <Play size={18} fill="currentColor" />
-                  <Volume2 size={18} />
-                  <span className="text-[10px] font-black font-mono tracking-widest uppercase">
-                    03:45 / {featuredEpisode.duration || '12:45'}
-                  </span>
-                </div>
-                <div className="flex items-center gap-6">
-                  <span className="text-[9px] font-black border border-white/30 px-2 py-0.5 rounded">
-                    HD
-                  </span>
-                  <Maximize size={18} />
-                </div>
-              </div>
-            </div>
-
-            {/* Multi-stage Gradient Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/90 z-10"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent z-10"></div>
-
-            {/* Content Layer (Top Badges only) */}
-            <div className="relative h-full w-full z-20 p-8 md:p-16 flex flex-col justify-between pointer-events-none">
-              {/* TOP ROW: Floating Badges */}
-              <div className="flex justify-between items-start pointer-events-auto">
-                <div className="flex flex-col gap-2">
-                  {/* <div className="text-white/40 text-[9px] font-black uppercase tracking-[0.3em] ml-1">
-                    Season 1 • Motion Comic
-                  </div> */}
-                </div>
-
-                {featuredEpisode.comingSoon && (
-                  <div className="flex items-center gap-3 bg-white/10 backdrop-blur-2xl border border-white/20 px-6 py-3 rounded-2xl shadow-2xl">
-                    <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
-                    <span className="text-white text-xs font-black uppercase tracking-[0.3em] font-cinzel">
-                      Coming Soon
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              {/* Empty space for bottom UI to show on hover */}
-              <div></div>
-            </div>
           </div>
 
           {/* Static Content Below the Video Card (Always Visible) */}
@@ -217,32 +171,23 @@ export const VideoEpisodes: React.FC = () => {
               <X size={24} />
             </button>
 
-            <div className="relative aspect-video">
-              <img
-                src={featuredEpisode.thumbnail}
-                className="w-full h-full object-cover"
-                alt="Modal Background"
-                loading="lazy"
+            <div className="relative aspect-video bg-black">
+              <video
+                src="/assets/Trailer.mov"
+                poster="/assets/Trailer-thumbnail.jpg"
+                className="w-full h-full object-contain"
+                controls
+                autoPlay
+                playsInline
+                preload="metadata"
+                aria-label={featuredEpisode.title}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
-              <div className="absolute bottom-6 left-10">
-                <div className="flex items-center gap-2 mb-2">
-                  <Youtube
-                    className="text-red-600"
-                    size={20}
-                    fill="currentColor"
-                  />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">
-                    YouTube Original Series
-                  </span>
-                </div>
-                <h4 className="text-3xl font-black font-cinzel text-[#016F93] uppercase">
-                  {featuredEpisode.title}
-                </h4>
-              </div>
             </div>
 
             <div className="p-10">
+              <h4 className="text-3xl font-black font-cinzel text-[#016F93] uppercase mb-8">
+                {featuredEpisode.title}
+              </h4>
               <div className="flex items-center gap-6 mb-8">
                 <div className="flex flex-col">
                   <span className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">

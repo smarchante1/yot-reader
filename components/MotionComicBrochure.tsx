@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Play,
   Sparkles,
@@ -9,12 +9,15 @@ import {
   ChevronRight,
   User,
   Video,
+  X,
 } from 'lucide-react';
 import { SOCIAL_LINKS } from '../constants';
 import { Button } from './Button';
 import { VoiceActorCarousel } from './VoiceActorCarousel';
 
 export const MotionComicBrochure: React.FC = () => {
+  const [isTrailerOpen, setIsTrailerOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-[#F8FDFF]">
       {/* Cinematic Hero */}
@@ -50,8 +53,9 @@ export const MotionComicBrochure: React.FC = () => {
               variant="primary"
               className="py-6 px-12 text-sm uppercase font-cinzel tracking-widest bg-white !text-[#016F93] hover:!bg-[#E1F6FA]"
               icon={<Play fill="currentColor" size={20} />}
+              onClick={() => setIsTrailerOpen(true)}
             >
-              Preview Coming Soon
+              Trailer 1
             </Button>
             <a
               href={SOCIAL_LINKS.youtube}
@@ -238,18 +242,18 @@ export const MotionComicBrochure: React.FC = () => {
 
                 <div className="flex items-center justify-between text-white/60 text-xs font-black uppercase tracking-widest">
                   <span>Remastering Chapters</span>
-                  <span className="text-[#1192A3]">Chapter 1</span>
+                  <span className="text-[#1192A3]">Chapter 1 Complete!</span>
                 </div>
                 <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                  <div className="h-full w-[3%] bg-[#1195%] bg-[#1192A3]"></div>
+                  <div className="h-full w-[100%] bg-[#1195%] bg-[#1192A3]"></div>
                 </div>
 
                 <div className="flex items-center justify-between text-white/60 text-xs font-black uppercase tracking-widest">
                   <span>Soundtrack Composition</span>
-                  <span className="text-[#1192A3]">15%</span>
+                  <span className="text-[#1192A3]">25%</span>
                 </div>
                 <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                  <div className="h-full w-[15%] bg-[#1192A3]"></div>
+                  <div className="h-full w-[25%] bg-[#1192A3]"></div>
                 </div>
               </div>
             </div>
@@ -288,6 +292,40 @@ export const MotionComicBrochure: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {isTrailerOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/80 backdrop-blur-md"
+          onClick={() => setIsTrailerOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Trailer 1"
+        >
+          <div
+            className="relative w-full max-w-5xl overflow-hidden rounded-2xl bg-black shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setIsTrailerOpen(false)}
+              aria-label="Close trailer"
+              className="absolute right-4 top-4 z-10 rounded-full bg-black/60 p-2 text-white hover:bg-black/80"
+            >
+              <X size={24} />
+            </button>
+            <video
+              src="/assets/Trailer.mov"
+              poster="/assets/Trailer-thumbnail.jpg"
+              className="aspect-video w-full object-contain"
+              controls
+              autoPlay
+              playsInline
+              preload="metadata"
+              aria-label="Trailer 1"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

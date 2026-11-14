@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Heart, Leaf } from 'lucide-react';
+import { SOCIAL_LINKS } from '../constants';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -138,7 +139,7 @@ export const Navbar: React.FC = () => {
             ))}
             <div className="px-6 mt-6">
               <a
-                href="https://patreon.com"
+                href={SOCIAL_LINKS.patreon}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full text-center bg-[#006E91] text-white px-4 py-5 rounded-xl text-sm font-black uppercase tracking-widest shadow-xl"

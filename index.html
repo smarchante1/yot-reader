@@ -115,6 +115,19 @@
   </head>
   <body>
     <div id="root"></div>
+    <form
+      name="fanart-submission"
+      method="POST"
+      data-netlify="true"
+      netlify
+      hidden
+    >
+      <input type="hidden" name="form-name" value="fanart-submission" />
+      <input type="text" name="artist-name" />
+      <input type="text" name="artwork-title" />
+      <input type="url" name="image-url" />
+      <input type="file" name="artwork-file" />
+    </form>
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>

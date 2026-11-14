@@ -35,7 +35,26 @@ export interface Fanart {
   artist: string;
   imageUrl: string;
   artistUrl?: string;
+  socialHandle?: string;
 }
+
+import type { ComponentType } from 'react';
+
+export interface NewsPost {
+  id: string;
+  title: string;
+  summary: string;
+  content: ComponentType;
+  category: string;
+  date: string;
+  readTime: string;
+  author: string;
+  imageUrl: string;
+}
+
+export type NewsPostWithComponent = Omit<NewsPost, 'content'> & {
+  content: ComponentType;
+};
 
 export interface NavItem {
   label: string;

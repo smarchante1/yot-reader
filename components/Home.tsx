@@ -1,19 +1,78 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, ArrowRight, Calendar } from 'lucide-react';
+import { Sparkles, ArrowRight, Calendar, Mail, X } from 'lucide-react';
 import { CHAPTERS } from '../constants';
 import { Button } from './Button';
 import { VideoEpisodes } from './VideoEpisodes';
 
 export const Home: React.FC = () => {
+  const [showNewsletter, setShowNewsletter] = useState(false);
   const latestChapter = CHAPTERS[CHAPTERS.length - 1];
   const volumeStarts = [1, 8, 16, 24];
   const currentVolumeStart =
     volumeStarts.filter((start) => start <= latestChapter.id).pop() || 1;
   const volumeChapter = CHAPTERS.find((ch) => ch.id === currentVolumeStart)!;
 
+  useEffect(() => {
+    if (window.sessionStorage.getItem('newsletter-modal-dismissed-v2')) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => setShowNewsletter(true), 4000);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
+  const closeNewsletter = () => {
+    window.sessionStorage.setItem('newsletter-modal-dismissed-v2', 'true');
+    setShowNewsletter(false);
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      {showNewsletter && (
+        <aside
+          role="dialog"
+          aria-modal="false"
+          aria-labelledby="newsletter-title"
+          aria-describedby="newsletter-description"
+          className="fixed inset-x-4 bottom-4 z-[60] max-w-sm rounded-2xl border border-[#016F93]/20 bg-[#E1F6FA]/80 p-6 text-left shadow-2xl backdrop-blur-md sm:inset-x-auto sm:bottom-6 sm:right-6 sm:p-8"
+        >
+          <button
+            type="button"
+            onClick={closeNewsletter}
+            aria-label="Close newsletter popup"
+            className="absolute right-3 top-3 rounded-full p-2 text-slate-600 transition-colors hover:bg-[#016F93]/10 hover:text-[#016F93]"
+          >
+            <X size={20} />
+          </button>
+          <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#016F93]/10 text-[#016F93]">
+            <Mail size={26} />
+          </div>
+          <h2
+            id="newsletter-title"
+            className="mb-3 pr-7 font-cinzel text-2xl font-bold text-[#016F93]"
+          >
+            Join the Newsletter
+          </h2>
+          <p
+            id="newsletter-description"
+            className="mb-5 text-sm leading-relaxed text-slate-700"
+          >
+            Get the latest chapter news, behind-the-scenes updates, and more
+            delivered straight to your inbox.
+          </p>
+          <a
+            href="https://ye-olde-treehouse.kit.com/0ba733e40f"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#1192A3] px-5 py-3 font-semibold text-white shadow-md transition-colors hover:bg-[#0E7A88] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#57c3d0]"
+          >
+            Subscribe
+            <ArrowRight size={18} />
+          </a>
+        </aside>
+      )}
+
       {/* Immersive Overlaid Hero Section */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-slate-950">
         <div

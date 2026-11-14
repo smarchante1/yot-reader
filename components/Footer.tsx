@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart } from 'lucide-react';
+import { Heart, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { MANGA_TITLE, SOCIAL_LINKS } from '../constants';
 import { TwitterIcon, YoutubeIcon, InstagramIcon } from './icons/FooterIcons';
@@ -58,6 +58,15 @@ export const Footer: React.FC = () => {
                 <YoutubeIcon />
               </a>
             </div>
+            <a
+              href="https://ye-olde-treehouse.kit.com/0ba733e40f"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#1192A3] px-8 py-3.5 font-bold text-white shadow-lg transition-all hover:bg-[#0E7A88] hover:shadow-[0_0_20px_rgba(17,146,163,0.3)] hover:-translate-y-1"
+            >
+              <Mail size={18} />
+              <span>Join the Newsletter</span>
+            </a>
           </div>
 
           {/* Support the Creator Column */}

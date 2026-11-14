@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+/.env
+/public/assets/Trailer.mov
 
 # Editor directories and files
 .vscode/*
