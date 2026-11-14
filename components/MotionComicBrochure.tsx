@@ -314,7 +314,7 @@ export const MotionComicBrochure: React.FC = () => {
               <X size={24} />
             </button>
             <video
-              src="/assets/Trailer.mov"
+              src="https://assets.yeoldetreehouse.com/other/Trailer.mov"
               poster="/assets/Trailer-thumbnail.jpg"
               className="aspect-video w-full object-contain"
               controls

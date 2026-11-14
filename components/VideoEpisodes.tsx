@@ -59,7 +59,7 @@ export const VideoEpisodes: React.FC = () => {
           >
             <video
               ref={inlineVideoRef}
-              src="/assets/Trailer.mov"
+              src="https://assets.yeoldetreehouse.com/other/Trailer.mov"
               poster="/assets/Trailer-thumbnail.jpg"
               controls
               preload="none"
@@ -173,7 +173,7 @@ export const VideoEpisodes: React.FC = () => {
 
             <div className="relative aspect-video bg-black">
               <video
-                src="/assets/Trailer.mov"
+                src="https://assets.yeoldetreehouse.com/other/Trailer.mov"
                 poster="/assets/Trailer-thumbnail.jpg"
                 className="w-full h-full object-contain"
                 controls
